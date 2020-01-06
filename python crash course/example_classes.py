@@ -4,9 +4,10 @@
 real world things/situations -> classes -> objects
 """
 
+from car import Car
+
+
 # Creating the Dog Class
-
-
 class Dog:
     """ Model a dog.
     Convention: capitalised names for classes
@@ -119,3 +120,119 @@ user_list = [
 for item in user_list:
     item.greet_user()
     item.describe_user()
+print()
+
+
+# Because we started adding too many attributes and methods to the ElectricCar class,
+# now we are deciding to move the battery related attributes/methods to a separate one
+# to keep the class from getting too complex.
+
+class Battery:
+    """model electric car's battery"""
+
+    def __init__(self, battery=75):
+        """Initialise the attributes."""
+        self.battery = battery
+
+    def describe_battery(self):
+        """
+        Print a statement describing the battery size.
+        """
+        print(f"Battery size: {self.battery}")
+
+    def get_miles_left(self):
+        """Show me if I'm gonna get home today or not."""
+        if self.battery == 75:
+            miles_left = 300
+        elif self.battery == 100:
+            miles_left = 500
+
+        print(f"You'll get {miles_left} miles.")
+
+    def upgrade_battery(self):
+        if self.battery < 100:
+            self.battery = 100
+        print("Battery upgraded.")
+
+# Inheritance - Line 7
+# mucking around with import cause too lazy to define the class here again.
+
+
+class ElectricCar(Car):
+    """Electric vehicle specific aspects."""
+
+    def __init__(self, make, model, year):
+        """
+        Initialise attributes for the parent class.
+        Initialise electric car specific attributes.
+        """
+        super().__init__(make, model, year)
+        self.battery = Battery()
+        # Create new instance of the Battery class replacing the
+        # previous self.battery = 75
+
+# Moved the function to Battery
+#   def describe_battery(self):
+#       """
+#       Print a statement describing the battery size.
+#       """
+#       print(f"Battery size: {self.battery}")
+
+    def fill_gas_tank(self):
+        """
+        Overriding the method from the parent/super Car class
+        Electric don't need no gas tank.
+        """
+        print(f"{self.model} gonna need a supercharger station.")
+
+
+my_car = ElectricCar('tesla', 'cybertruck', 2020)
+print(my_car.get_descriptive_name())
+# my_car.describe_battery() - replaced with
+my_car.battery.describe_battery()
+my_car.fill_gas_tank()
+my_car.battery.get_miles_left()
+print()
+
+######### Exercise Begin #########
+
+
+class IceCreamStand(Restaurant):
+    """
+    Inherits from Restaurant class as it's a specific kind of restaurant.
+    Contains
+    - attribute: flavours
+    - method: display_flavours
+    """
+
+    def __init__(self, restaurant_name, cuisine_type):
+        """
+        Define how this class will be initialised.
+        Also include attributes and methods of the super/parent class.
+        Also, supply the flavour attribute.
+        """
+        super().__init__(restaurant_name, cuisine_type)
+        self.flavours = ["vanilla", "chocolate",
+                         "tiramissu", "blackcurrent", "black-seasame"]
+
+    def display_flavours(self):
+        """
+        Display all the flavours
+        """
+        print(f"Flavours: {self.flavours}")
+
+
+my_icecream = IceCreamStand("Coco's", "IceCream Joint")
+my_icecream.open_restaurant()
+my_icecream.display_flavours()
+print()
+
+
+
+my_car1 = ElectricCar("Ford", "Falcon", 2019)
+print(my_car1.get_descriptive_name())
+my_car1.battery.get_miles_left()
+my_car1.battery.upgrade_battery()
+my_car1.battery.get_miles_left()
+
+######### Exercise END #########

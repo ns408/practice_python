@@ -1,5 +1,7 @@
-#!/usr/bin/env python3
-
+"""
+Module-level docstring to describe what this is about.
+Class to model a car.
+"""
 
 class Car:
     """Represent a car."""
@@ -38,18 +40,3 @@ class Car:
     def fill_gas_tank(self):
         """Someone doesn't have an electric car"""
         print("Filling gas...")
-
-if __name__ == "__main__":
-    mycar = Car("Toyota", "Hilux", 2019)
-    print(mycar.get_descriptive_name())
-    print(f"\nReading before changing: ")
-    mycar.read_odometer()
-    print()
-
-    print("\nUpdate the mileage")
-    if mycar.update_odometer(2):
-        mycar.read_odometer()
-
-    print("\nIncrement the mileage")
-    if mycar.increment_odometer(100):
-        mycar.read_odometer()
