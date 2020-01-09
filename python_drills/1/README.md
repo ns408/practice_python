@@ -84,7 +84,7 @@ Quoted characters whether using single or double quotes are strings.
 
 Note:
 
-Finding what methods can be used against objects:
+Finding what attributes (_attributes and methods_) an object has:
 
 ```python
 dir('string')
