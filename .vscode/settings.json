@@ -3,5 +3,5 @@
     "python.linting.enabled": true,
     "python.formatting.autopep8Path": "autopep8",
     "python.linting.pycodestyleEnabled": false,
-    "python.pythonPath": ".env/bin/python3"
+    "python.pythonPath": ".env/bin/python"
 }
