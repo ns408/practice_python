@@ -156,7 +156,7 @@ A bit about stripping (_whitespaces_):
 
 ##### Numbers
 
-_is z name of the z game._
+_is z name of z game._
 
 ###### Integers
 
@@ -170,7 +170,7 @@ dir(int())
 print(int(1.2))
 ```
 
-BODMAS (Bracket, Off, Division, Multiplication, Addition, Subtraction) may be the way in Maths but here we can enforce our rules using parentheses.
+BODMAS (Bracket, Of (power of), Division, Multiplication, Addition, Subtraction) may be the way in Maths but here we can enforce our rules using parentheses.
 
 ###### Floats
 
@@ -247,6 +247,22 @@ import this
 **Now is better than never.**
 
 #### Auxiliary
+
+- Installing pyenv in zsh on macOS
+
+```shell
+brew install pyenv
+
+# added the following to my ~/.zshrc file
+export PATH=/usr/local/Cellar/pyenv/<version>/bin:$PATH
+export PATH=$(pyenv root)/shims:$PATH
+
+pyenv install 3.6.5
+pyenv local 3.6.5
+python --version # shows 3.6.5
+pyenv local system
+python --version # shows 2.7.10
+```
 
 - working with python3's venv for fun:
 
