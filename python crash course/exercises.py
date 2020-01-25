@@ -44,8 +44,12 @@ class Lottery:
 
     def select_ticket(self):
         ticket_number = []
-        for item in range(0,4):
-            ticket_number += str(choice(self.var))
+        while len(ticket_number) < 4:
+            pulled_item = choice(self.var)
+
+            "Only add if not already present"
+            if pulled_item not in ticket_number:
+                ticket_number.append(pulled_item)
         return ticket_number
 
     def print_ticket(self):
