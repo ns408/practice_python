@@ -10,3 +10,9 @@ from random import choice
 players = ["dumdum", "dumdum1", "dumdum2", "dumdum3"]
 first_up = choice(players)
 print(f"Random players from the list using choice: {first_up}")
+
+# choice function
+from random import choice
+players = ("dumdum", "dumdum1", "dumdum2", "dumdum3")
+first_up = choice(players)
+print(f"Random players from the list using choice: {first_up}")
