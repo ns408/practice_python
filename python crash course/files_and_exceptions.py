@@ -247,8 +247,11 @@ while True:
     try:
         print("Add two numbers to add or 'quit' to exit.")
         num1 = input("Please enter the first number: ")
+        if str(num1).lower() == 'quit':
+            print("Exiting the program now.")
+            break
         num2 = input("Please enter the second number: ")
-        if str(num1).lower() == 'quit' or str(num2).lower() == 'quit':
+        if str(num2).lower() == 'quit':
             print("Exiting the program now.")
             break
         num1 = int(num1)
