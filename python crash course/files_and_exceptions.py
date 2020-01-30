@@ -243,6 +243,7 @@ else:
 """
 
 #10-7
+"""
 while True:
     try:
         print("Add two numbers to add or 'quit' to exit.")
@@ -260,4 +261,190 @@ while True:
         print("Sorry, input numbers only\n")
     else:
         print(num1 + num2)
+"""
 
+# Create files for the next execise
+import os.path
+def create_file(content, filename):
+    filename = os.path.dirname(os.path.realpath(__file__)) + "/" + filename
+    with open(filename, "w") as f:
+        f.write(content)
+
+filename1 = "tmp_cats.txt"
+content1 = """\
+cat1
+cat2
+cat3\
+"""
+create_file(content1, filename1)
+
+filename2 = "tmp_dogs.txt"
+content2 = """\
+dog1
+dog2
+dog3\
+"""
+create_file(content2, filename2)
+
+# 10-8
+import os.path
+def read_file(param_filename):
+    try:
+        filename = os.path.dirname(os.path.realpath(__file__)) + "/" + param_filename
+        with open(filename) as f:
+            print(f.read())
+    except FileNotFoundError:
+        print(f"\nFile '{param_filename}' cannot be found. Please check the filename and path.\n")
+
+read_file("tmp_cats.txt")
+read_file("tmp_dogs.txt")
+print()
+
+# 10-9
+import os.path
+def read_file1(param_filename):
+    """Fail silently if the file is missing"""
+    try:
+        filename = os.path.dirname(os.path.realpath(__file__)) + "/" + param_filename
+        with open(filename) as f:
+            print(f.read())
+    except FileNotFoundError:
+        pass
+
+read_file1("tmp_cats1.txt")
+read_file1("tmp_dogs.txt")
+print()
+
+# 10-10
+"""
+This gets downloaded previously in this script so just re-using.
+"""
+filename = os.path.dirname(os.path.realpath(__file__)) + "/tmp_alice_in_wonderland.txt"
+
+def common_words(filename, param_word):
+    try:
+        word_count = 0
+        with open(filename, encoding='utf-8') as f:
+            for line in f.readlines():
+                word_count += line.lower().count(param_word)
+    except FileNotFoundError:
+        pass
+    else:
+        print(f"Total number of '{param_word}': {word_count}")
+
+common_words(filename, "the")
+common_words(filename, "the ")
+
+# Storing Data
+
+# number_writer.py
+import json
+import os.path
+
+numbers = [ 2, 3, 5, 7, 11, 13 ]
+
+filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_numbers.json'
+with open(filename, 'w') as f:
+    json.dump(numbers, f)
+
+# number_reader.py
+with open(filename) as f:
+    numbers = json.load(f)
+print(numbers)
+
+# remember_me.py
+import json
+import os.path
+
+def greet_user():
+    """
+    Retrieve name if the file exits or ask for the name and dump it into a json file.
+    """
+    try:
+        filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_username.json'
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        username = input("\nPlease enter the username: ")
+        with open(filename, "w") as f:
+            json.dump(username, f)
+            print(f"\nhey {username}")
+    except ValueError:
+        print("Probably encountered an empty file")
+    else:
+        print(f"\nhey {username}")
+
+greet_user()
+
+# Refactor greet_user()
+
+import json
+def get_stored_username():
+    """Get stored username if avaialble."""
+    filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_username.json'
+    try:
+        with open(filename) as f:
+            username = json.load(f)
+    except FileNotFoundError:
+        return None
+    except ValueError:
+        print("Probably encountered an empty file")
+    else:
+        return username
+
+def get_new_username():
+    """Prompt for a new username."""
+    username = input("What is your name? ")
+    filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_username.json'
+    with open(filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+
+def greet_user1():
+    """Greet the user by name."""
+    username = get_stored_username()
+    if username:
+        print(f"Welcome back, {username}!")
+    else:
+        username = get_new_username()
+        print(f"We'll remember you: {username}")
+
+greet_user1()
+
+
+# 10-11
+print()
+import json
+import os.path
+
+#dump_favourite_number.py
+def dump_favourite_number():
+    try:
+        filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_fav_number.json'
+        number = input("Please enter your fav number: ")
+        with open(filename, 'w') as f:
+            json.dump(int(number), f)
+    except ValueError:
+        print(f"Value entered {number} is not a number")
+    except FileNotFoundError:
+        print(f"File {filename} doesn't exist")
+    else:
+        pass
+
+#dump_favourite_number()
+
+#load_favourite_number.py
+def load_favourite_number():
+    try:
+        filename = os.path.dirname(os.path.realpath(__file__)) + '/' + 'tmp_fav_number.json'
+        with open(filename) as f:
+            number = json.load(f)
+    except ValueError:
+        print(f"File is empty")
+    except FileNotFoundError:
+        print(f"File {filename} doesn't exist")
+    else:
+        print(number)
+
+load_favourite_number()
