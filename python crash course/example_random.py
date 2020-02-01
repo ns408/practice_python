@@ -25,3 +25,10 @@ print(var_r.rstrip())
 var = " string_with_space_on_left_and_right "
 print(var)
 print(var.strip())
+
+# Print things dynamically
+# https://stackoverflow.com/questions/3249524/print-in-one-line-dynamically
+item = 0
+while True:
+  item += 1
+  print(f"{item} ", sep=' ', end='', flush=True)
