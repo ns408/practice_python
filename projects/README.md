@@ -1,6 +1,6 @@
 # Projects
 
-## Learning Log
+## Project Learning Log
 
 ```shell
 mkdir project_learning_log
@@ -10,11 +10,15 @@ python3 -m venv venv
 source venv/bin/activate
 
 pip install django
+```
 
+### Create and Start project
+
+```shell
 django-admin startproject learning_log .
 ls learning_log
 
-# Migrate (modify) the database
+# Create/Migrate the database
 python manage.py migrate
 
 # runserver
