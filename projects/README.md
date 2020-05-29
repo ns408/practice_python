@@ -57,3 +57,8 @@ Work with models through admin site.
 #### Setting up a SuperUser
 
 `python manage.py createsuperuser`
+
+### Registering a Model with the Admin Site
+
+Modify `learning_log/admin.py` and access http://127.0.0.1:8000/admin/
+
