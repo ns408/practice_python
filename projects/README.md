@@ -38,6 +38,14 @@ ls learning_logs
 
 ### Activate Models
 
-Include our app in the overall project.
+Include our app in the overall project by editing `learning_log/settings.py`
 
-`learning_log/settings.py`
+#### Modify the database so it can store information related to the model Topic.
+
+Create the migration
+
+`python manage.py makemigrations learning_logs`
+
+Apply the migration
+
+`python manage.py migrate`
