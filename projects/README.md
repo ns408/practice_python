@@ -49,3 +49,11 @@ Create the migration
 Apply the migration
 
 `python manage.py migrate`
+
+### Django Admin Site
+
+Work with models through admin site.
+
+#### Setting up a SuperUser
+
+`python manage.py createsuperuser`
