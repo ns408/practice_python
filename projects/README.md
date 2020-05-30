@@ -169,3 +169,32 @@ for topping in Topping.objects.all():
 # Lookup toppings for a certain pizza
 Pizza.objects.get(id=1).topping_set.all()
 ```
+
+### Making Pages
+
+- define URLs
+- write views
+- write templates
+
+URL maps to view. View function retrieves and processes the data needed for the page.
+View function renders the page using a template which contains overall structure of the page.
+
+#### Mapping a URL
+
+Modify `learning_log/urls.py`
+Create `learning_logs/urls.py`
+
+#### Writing a View
+
+Modify `learning_logs/views.py`
+
+#### Writing a Template
+
+```shell
+mkdir -p learning_logs/templates/learning_logs
+cat > learning_logs/templates/learning_logs/index.html <<EOF
+<p>Learning Log</p>
+
+<p>Track your learning.</p>
+EOF
+```
