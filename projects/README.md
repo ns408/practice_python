@@ -77,3 +77,22 @@ python manage.py migrate
 
 Modify `admin.py` and add Entries from http://127.0.0.1:8000/admin/
 
+### Django shell
+
+```shell
+python manage.py shell
+
+# Import Topic and Entry from learning_logs.models module
+from learning_logs.models import Topic, Entry
+
+# List me all topics
+for topic in Topic.objects.all():
+    print(topic.id, topic, topic.date_added)
+
+# List me all entries
+for entry in Entry.objects.all():
+    print(entry.id, entry, entry.date_added)
+
+# Lookup entries for a certain topic
+Topic.objects.get(id=1).entry_set.all()
+```
