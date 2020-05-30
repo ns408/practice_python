@@ -322,3 +322,39 @@ Modify `learning_logs/views.py`
 
 Create `learning_logs/templates/learning_logs/topic.html`
 Modify `learning_logs/templates/learning_logs/topics.html`
+
+### Project Pizzeria Pages
+
+Two pages:
+- pizzas page
+- pizza page displaying toppings for each pizza
+
+####  The Pizzas URL Pattern
+
+Modify `pizzas/urls.py`
+
+#### The Pizzas View
+
+Modify `pizzas/views.py`
+
+#### The Pizzas Template
+
+Create `pizzas/templates/pizzas/pizzas.html`
+Modify `pizzas/templates/pizzas/base.html`
+
+### Individual Pizza with Toppings Pages
+
+Show all toppings for a pizza.
+
+#### The Pizza URL Pattern
+
+Modify `pizzas/urls.py`
+
+#### The Pizza View
+
+Modify `pizzas/views.py`
+
+#### The Pizza Template
+
+Create `pizzas/templates/pizzas/pizza.html`
+Modify `pizzas/templates/pizzas/pizzas.html`
