@@ -305,3 +305,20 @@ Modify `learning_logs/views.py`
 
 Create `learning_logs/templates/learning_logs/topics.html`
 Modify `learning_logs/templates/learning_logs/base.html`
+
+### Individual Topic Pages
+
+Show all entries for a topic.
+
+#### The Topic URL Pattern
+
+Modify `learning_logs/urls.py`
+
+#### The Topic View
+
+Modify `learning_logs/views.py`
+
+#### The Topic Template
+
+Create `learning_logs/templates/learning_logs/topic.html`
+Modify `learning_logs/templates/learning_logs/topics.html`
