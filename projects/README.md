@@ -279,3 +279,10 @@ cat > pizzas/templates/pizzas/index.html <<EOF
 <p>Order your pizzas.</p>
 EOF
 ```
+
+***Template Inheritence***
+
+```shell
+touch learning_logs/templates/learning_logs/base.html
+vim learning_logs/templates/learning_logs/index.html
+```
