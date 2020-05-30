@@ -9,4 +9,6 @@ urlpatterns = [
     path('', views.index, name='index'),
     # Show all pizzas
     path('pizzas/', views.pizzas, name='pizzas'),
+    # Show pizza's toppings
+    path('pizzas/<int:pizza_id>', views.pizza, name='pizza'),
 ]
