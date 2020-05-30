@@ -72,3 +72,8 @@ Add the `class Entry` to `learning_log/models.py`
 python manage.py makemigrations learning_logs
 python manage.py migrate
 ```
+
+### Registering Entry with the Admin Site
+
+Modify `admin.py` and add Entries from http://127.0.0.1:8000/admin/
+
