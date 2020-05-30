@@ -6,6 +6,7 @@
 mkdir project_learning_log
 cd project_learning_log
 
+echo 'venv/*' > .gitignore
 python3 -m venv venv
 source venv/bin/activate
 
@@ -95,4 +96,76 @@ for entry in Entry.objects.all():
 
 # Lookup entries for a certain topic
 Topic.objects.get(id=1).entry_set.all()
+```
+
+### Project Pizzeria
+
+Create and Start project
+
+```shell
+mkdir project_pizzeria
+cd project_pizzeria
+
+echo 'venv/*' > .gitignore
+python3 -m venv venv
+source venv/bin/activate
+
+pip install django
+
+django-admin startproject pizzeria .
+ls pizzeria
+
+python manage.py migrate
+
+python manage.py runserver 8010
+```
+
+Starting the app
+
+```shell
+source venv/bin/activate
+
+python manage.py startapp pizzas
+ls pizzas
+```
+
+Include app in the overall project by editing `pizzeria/settings.py`
+
+Modify `pizzas/models.py` and define:
+- a model Pizza with a field called `name`.
+- a model called Topping with fields called `pizza` and `name`.
+
+Create and apply the migration
+
+```shell
+python manage.py makemigrations pizzas
+python manage.py migrate
+```
+
+Create a SuperUser
+
+`python manage.py createsuperuser`
+
+Registering Models with the Admin Site
+
+Modify `learning_log/admin.py` and access http://127.0.0.1:8010/admin/
+
+Django shell
+
+```shell
+python manage.py shell
+
+# Import Topic and Entry from learning_logs.models module
+from pizzas.models import Pizza, Topping
+
+# List me all pizzas
+for pizza in Pizza.objects.all():
+    print(pizza.id, pizza)
+
+# List me all toppings
+for topping in Topping.objects.all():
+    print(topping.id, topping)
+
+# Lookup toppings for a certain pizza
+Pizza.objects.get(id=1).topping_set.all()
 ```
