@@ -198,3 +198,56 @@ cat > learning_logs/templates/learning_logs/index.html <<EOF
 <p>Track your learning.</p>
 EOF
 ```
+
+### Project Meal Planner
+
+Create and Start project
+
+```shell
+mkdir project_meal_planner
+cd project_meal_planner
+
+echo 'venv/*' > .gitignore
+python3 -m venv venv
+source venv/bin/activate
+
+pip install django
+
+django-admin startproject meal_planner .
+ls meal_planner
+
+python manage.py migrate
+
+python manage.py runserver 8020
+```
+
+**Starting the app**
+
+```shell
+source venv/bin/activate
+
+python manage.py startapp meal_plans
+ls meal_plans
+```
+
+Include app in the overall project by editing `meal_planner/settings.py`
+
+**Mapping a URL**
+
+Modify `meal_planner/urls.py`
+Create `meal_plans/urls.py`
+
+**Writing a View**
+
+Modify `meal_plans/views.py`
+
+**Writing a Template**
+
+```shell
+mkdir -p meal_plans/templates/meal_plans
+cat > meal_plans/templates/meal_plans/index.html <<EOF
+<p>Meal Planner</p>
+
+<p>Plan your meals.</p>
+EOF
+```
