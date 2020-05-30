@@ -251,3 +251,31 @@ cat > meal_plans/templates/meal_plans/index.html <<EOF
 <p>Plan your meals.</p>
 EOF
 ```
+
+### Project Pizzeria Home Page
+
+```shell
+source venv/bin/activate
+
+python manage.py runserver 8010
+```
+
+**Mapping a URL**
+
+Modify `pizzeria/urls.py`
+Create `pizzas/urls.py`
+
+**Writing a View**
+
+Modify `pizzas/views.py`
+
+**Writing a Template**
+
+```shell
+mkdir -p pizzas/templates/pizzas
+cat > pizzas/templates/pizzas/index.html <<EOF
+<p>Pizzeria</p>
+
+<p>Order your pizzas.</p>
+EOF
+```
