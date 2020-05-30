@@ -65,3 +65,10 @@ Modify `learning_log/admin.py` and access http://127.0.0.1:8000/admin/
 ### Defining the Entry Model
 
 Add the `class Entry` to `learning_log/models.py`
+
+### Migrating the Entry Model
+
+```shell
+python manage.py makemigrations learning_logs
+python manage.py migrate
+```
