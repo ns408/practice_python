@@ -280,9 +280,28 @@ cat > pizzas/templates/pizzas/index.html <<EOF
 EOF
 ```
 
-***Template Inheritence***
+### Template Inheritence
 
 ```shell
 touch learning_logs/templates/learning_logs/base.html
 vim learning_logs/templates/learning_logs/index.html
 ```
+
+### The Topics Page
+
+Two pages:
+- general topics page
+- page to display entries for a single topic
+
+####  The Topics URL Pattern
+
+Modify `learning_logs/urls.py`
+
+#### The Topics View
+
+Modify `learning_logs/views.py`
+
+#### The Topics Template
+
+Create `learning_logs/templates/learning_logs/topics.html`
+Modify `learning_logs/templates/learning_logs/base.html`
