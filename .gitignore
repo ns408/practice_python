@@ -1,3 +1,5 @@
+books
+
 .env/*
 __pycache__/
 tmp_*
