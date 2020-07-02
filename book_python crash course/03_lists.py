@@ -5,18 +5,18 @@ Working with Python Lists
 """
 
 alist = ["item1", "item2", "item3", "item4"]
-print("Looping through list elements")
+print("Looping through list elements:")
 for item in alist:
-    print(item)
+    print(item, end='\t') # forcing print to not use '\n' and instead use '\t'
 
-print("\nrange() function use:")
+print("\n\nrange() function use:")
 print("start at first argument and stop before second: range(1, 4)")
 for item in range(1, 4):
-    print(item)
+    print(item, end='\t')
 
 print("\nrun 0 to 3: range(4)")
 for item in range(4):
-    print(item)
+    print(item, end='\t')
 
 print("\nuse list() function to make a list using range")
 alist = list(range(1, 6))
@@ -24,7 +24,7 @@ print(alist)
 
 print("\nuse list(range(2,11,2)) to create an array of even numbers")
 alist = list(range(2, 11, 2))
-print(alist)
+print(alist, end='\t')
 
 print("\nDisplay squares of 1-10 using range()")
 square = []
@@ -64,6 +64,7 @@ for func in min, max, sum:
 alist = list(range(1,21,2))
 for item in alist:
   print(item)
+# Output: 1, 3, 5, 7, 9 ... 19
 
 # Threes: list of multiples of 3 from 3 to 30
 alist = list(range(3,31,3))
